@@ -29,9 +29,9 @@ export default {
           500: '#64748b',
           600: '#cbd5e1',
           700: '#e2e8f0',
-          800: '#f1f5f9',
+          800: '#f8fafc',
           900: '#ffffff',
-          950: '#f8fafc',
+          950: '#f1f5f9',
         }
       },
       fontFamily: {

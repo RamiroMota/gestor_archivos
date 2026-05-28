@@ -98,9 +98,9 @@ export default function FileExplorer() {
   );
 
   return (
-    <div className="flex h-screen bg-slate-950 text-slate-100 font-sans overflow-hidden">
+    <div className="flex h-screen bg-slate-955 text-slate-100 font-sans overflow-hidden">
       {/* 1. BARRA LATERAL (Sidebar) */}
-      <aside className="w-64 bg-slate-900/40 border-r border-slate-800/80 p-5 flex flex-col justify-between hidden md:flex backdrop-blur-md">
+      <aside className="w-64 bg-slate-900 border-r border-slate-700 p-5 flex flex-col justify-between hidden md:flex shadow-xl shadow-slate-200/50 z-10">
         <div>
           {/* Logo */}
           <div className="flex items-center gap-3 mb-8 px-2">
@@ -122,7 +122,7 @@ export default function FileExplorer() {
                 setCurrentFolderId('root');
                 setNavigationStack([{ id: 'root', name: 'Carpeta Raíz' }]);
               }}
-              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-slate-800/60 text-slate-100 font-medium text-sm border border-slate-700/30 transition-all shadow-inner"
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-slate-800 text-slate-100 font-semibold text-sm border border-slate-700 transition-all shadow-sm"
             >
               <HardDrive className="w-4 h-4 text-brand-400" />
               <span>Todos los archivos</span>
@@ -142,7 +142,7 @@ export default function FileExplorer() {
       {/* 2. AREA DE CONTENIDO PRINCIPAL */}
       <main className="flex-1 flex flex-col overflow-hidden">
         {/* Barra de Búsqueda y Perfil superior */}
-        <header className="h-16 border-b border-slate-800/80 px-6 flex items-center justify-between bg-slate-900/20 backdrop-blur">
+        <header className="h-16 border-b border-slate-700 px-6 flex items-center justify-between bg-slate-900 shadow-sm z-10">
           <div className="relative w-full max-w-md">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
             <input 
@@ -150,19 +150,19 @@ export default function FileExplorer() {
               placeholder="Buscar archivos en esta carpeta..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-slate-900/60 border border-slate-800 hover:border-slate-700/60 focus:border-brand-500 rounded-xl text-sm placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-brand-500/20 transition-all text-slate-200"
+              className="w-full pl-10 pr-4 py-2 bg-slate-800 border border-slate-700 focus:border-brand-500 rounded-xl text-sm placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-brand-500/20 transition-all text-slate-200"
             />
           </div>
 
           <div className="flex items-center gap-3">
             <button 
               onClick={() => fetchFolderContents(currentFolderId)}
-              className="p-2 bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:bg-slate-800/50 rounded-xl transition-all text-slate-400 hover:text-slate-200"
+              className="p-2 bg-slate-800 border border-slate-700 hover:bg-slate-800/80 rounded-xl transition-all text-slate-400 hover:text-slate-200 shadow-sm"
               title="Refrescar contenido"
             >
               <RefreshCw className="w-4 h-4" />
             </button>
-            <div className="h-8 w-[1px] bg-slate-800" />
+            <div className="h-8 w-[1px] bg-slate-700" />
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-xs font-semibold text-brand-400 border border-brand-500/20">
                 U
@@ -246,10 +246,10 @@ export default function FileExplorer() {
                   <div 
                     key={item.id}
                     onClick={() => handleItemClick(item)}
-                    className="group relative flex flex-col p-4 bg-slate-900/20 hover:bg-slate-900/60 border border-slate-900 hover:border-slate-800 rounded-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-500/5 select-none"
+                    className={`group relative flex flex-col p-4 bg-slate-900 border border-slate-700 rounded-2xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 shadow-sm ${styles.hoverBg} ${styles.hoverBorder} ${styles.hoverShadow} select-none`}
                   >
                     {/* Contenedor del Icono */}
-                    <div className={`aspect-square w-full rounded-xl ${styles.bg} flex items-center justify-center mb-3 transition-colors duration-300 border border-transparent group-hover:border-slate-800 overflow-hidden relative`}>
+                    <div className={`aspect-square w-full rounded-xl ${styles.bg} flex items-center justify-center mb-3 transition-colors duration-300 border border-transparent group-hover:border-slate-700 overflow-hidden relative`}>
                       {showThumbnail ? (
                         <>
                           <img 
@@ -266,7 +266,7 @@ export default function FileExplorer() {
                       
                       {/* Badge flotante de vista en Modo Lectura */}
                       {!isFolder && (
-                        <div className="absolute bottom-2 right-2 p-1.5 bg-slate-950/80 backdrop-blur rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-slate-800">
+                        <div className="absolute bottom-2 right-2 p-1.5 bg-slate-900 shadow-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-slate-700">
                           <Eye className="w-3.5 h-3.5 text-brand-400" />
                         </div>
                       )}
@@ -293,18 +293,18 @@ export default function FileExplorer() {
             </div>
           ) : (
             // VISTA EN LISTA
-            <div className="bg-slate-900/10 border border-slate-850 rounded-2xl overflow-hidden shadow-xl">
+            <div className="bg-slate-900 border border-slate-700 rounded-2xl overflow-hidden shadow-md">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-slate-800/80 bg-slate-950/40 text-slate-400 text-xs font-semibold">
+                    <tr className="border-b border-slate-700 bg-slate-800 text-slate-400 text-xs font-semibold">
                       <th className="p-4">Nombre</th>
                       <th className="p-4">Modificado</th>
                       <th className="p-4">Tamaño</th>
                       <th className="p-4 text-right">Acción</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/40">
+                  <tbody className="divide-y divide-slate-750">
                     {filteredItems.map((item) => {
                       const type = getFileType(item.mimeType, item.name);
                       const Icon = getFileIcon(type);
@@ -315,10 +315,10 @@ export default function FileExplorer() {
                         <tr 
                           key={item.id}
                           onClick={() => handleItemClick(item)}
-                          className="hover:bg-slate-900/40 cursor-pointer transition-colors duration-250 select-none group"
+                          className={`hover:bg-slate-900 cursor-pointer transition-colors duration-250 select-none group ${styles.hoverBg}`}
                         >
                           <td className="p-4 flex items-center gap-3">
-                            <div className={`p-2.5 rounded-lg ${styles.bg} border border-transparent group-hover:border-slate-800/50`}>
+                            <div className={`p-2.5 rounded-lg ${styles.bg} border border-transparent group-hover:border-slate-700`}>
                               <Icon className={`w-4 h-4 ${styles.text}`} />
                             </div>
                             <span className="text-xs font-semibold text-slate-200 truncate max-w-md group-hover:text-slate-100">
