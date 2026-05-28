@@ -1,0 +1,28 @@
+# Dependencias / paquetes
+node_modules/
+.pnpm-store/
+
+# Directorios de compilación y caché de Astro
+.astro/
+dist/
+
+# Entornos y variables secretas
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+
+# Asegurar que se suba el archivo de ejemplo de variables de entorno
+!.env.example
+
+# Logs de error y depuración
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
