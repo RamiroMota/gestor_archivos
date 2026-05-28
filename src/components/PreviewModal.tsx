@@ -190,7 +190,7 @@ export default function PreviewModal({ item, onClose }: PreviewModalProps) {
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>Encriptación de canal HTTPS activa</span>
           </div>
-          <p>© 2026 TeraBox Clone - Modo Lectura Protegido</p>
+          <p>UPGCH © 2026 Gestor de archivos - Modo Lectura Protegido</p>
         </div>
       </div>
     </div>

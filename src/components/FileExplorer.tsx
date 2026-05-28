@@ -104,14 +104,14 @@ export default function FileExplorer() {
         <div>
           {/* Logo */}
           <div className="flex items-center gap-3 mb-8 px-2">
-            <div className="w-10 h-10 bg-brand-500 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-brand-500/20">
-              TB
+            <div className="w-10 h-10 bg-slate-900 rounded-xl flex items-center justify-center overflow-hidden border border-slate-800 shadow-md">
+              <img src="/logo.png" alt="Logo UPGCH" className="w-full h-full object-contain p-1" />
             </div>
             <div>
-              <h2 className="font-bold text-lg leading-tight tracking-wide bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-                TeraBox
+              <h2 className="font-bold text-lg leading-tight tracking-wide bg-gradient-to-r from-slate-100 to-slate-400 bg-clip-text text-transparent">
+                UPGCH
               </h2>
-              <span className="text-xs text-brand-400 font-medium">Clon Minimalista</span>
+              <span className="text-xs text-brand-400 font-medium">Gestor de Archivos</span>
             </div>
           </div>
 
@@ -137,17 +137,6 @@ export default function FileExplorer() {
           </nav>
         </div>
 
-        {/* Almacenamiento Info */}
-        <div className="bg-slate-800/30 border border-slate-700/20 rounded-2xl p-4 backdrop-blur-sm">
-          <div className="flex items-center justify-between text-xs text-slate-400 mb-2">
-            <span className="flex items-center gap-1.5"><Database className="w-3.5 h-3.5 text-brand-400" /> Almacenamiento Nube</span>
-            <span className="font-semibold text-slate-200">1.2 GB / 1 TB</span>
-          </div>
-          <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden mb-1">
-            <div className="bg-gradient-to-r from-brand-500 to-cyan-400 h-2 rounded-full" style={{ width: '0.12%' }}></div>
-          </div>
-          <p className="text-[10px] text-slate-500 text-right">0.12% Usado</p>
-        </div>
       </aside>
 
       {/* 2. AREA DE CONTENIDO PRINCIPAL */}
@@ -178,7 +167,7 @@ export default function FileExplorer() {
               <div className="w-8 h-8 rounded-xl bg-slate-800 flex items-center justify-center text-xs font-semibold text-brand-400 border border-brand-500/20">
                 U
               </div>
-              <span className="text-xs text-slate-300 font-medium hidden sm:inline">Usuario de Prueba</span>
+              <span className="text-xs text-slate-300 font-medium hidden sm:inline">Usuario Evaluador</span>
             </div>
           </div>
         </header>
